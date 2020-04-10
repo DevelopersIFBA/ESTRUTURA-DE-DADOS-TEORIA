@@ -1,0 +1,40 @@
+A função abaixo promete ter o mesmo comportamento da função busca da questao 3. 
+Critique o código.
+
+celula *busca (int x, celula *le) {
+
+    celula *p = le;
+    int achou = 0;
+
+    while (p != NULL && !achou) {
+        if (p->conteudo == x) 
+            achou = 1;
+        p = p->prox; 
+    }
+
+    if (achou) 
+        return p;
+    else return NULL;
+}
+
+Minha crítica é que o código nao precisava do achou, poderia mudar para while(p->conteudo != x && p!= NULL)
+É o mesmo código, mas evitaria a criação de mais uma variável, além de remover o if de dentro do while
+Outra sugestão seria remover o achou e colocar o return p dentro do if p->conteudo == x
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+Critique o código da seguinte variante da função busca.
+
+celula *busca (int x, celula *le) {
+    celula *p = le;
+
+    while (p != NULL && p->conteudo != x)
+        p = p->prox;
+
+    if (p != NULL) return p;
+    else printf ("x não está na lista\n");
+}
+
+colocaria só um return P
